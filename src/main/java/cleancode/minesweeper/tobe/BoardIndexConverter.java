@@ -4,26 +4,26 @@ package cleancode.minesweeper.tobe;
 
 public class BoardIndexConverter {
     private static final char BASED_CHAR_FOR_COL = 'a';
-    int getSelectedRowIndex(String cellInput, int rowSize) {
+    public int getSelectedRowIndex(String cellInput) {
         String cellInputRow = cellInput.substring(1); //첫번째 글자를 땐 뒤에 모두 가져오기
-        return convertRowFrom(cellInputRow,rowSize);
+        return convertRowFrom(cellInputRow);
     }
 
-    int getSelectedColIndex(String cellInput, int colSize) {
-        char cellInputCol = cellInput.charAt(1);
-        return convertColFrom(cellInputCol,colSize );
+    public int getSelectedColIndex(String cellInput) {
+        char cellInputCol = cellInput.charAt(0);
+        return convertColFrom(cellInputCol);
     }
-    private int convertRowFrom(String cellInputRow, int rowSize) {
+    public int convertRowFrom(String cellInputRow) {
         int rowIndex = Integer.parseInt(cellInputRow)-1;
-        if (rowSize < rowIndex||0>rowIndex) {
+        if (0>rowIndex) {
             throw new GameException("잘못된 입력입니다.");
         }
         return rowIndex;
     }
 
-    private int convertColFrom(char cellInputCol, int colSize) {
+    private int convertColFrom(char cellInputCol) {
         int colIndex = cellInputCol - BASED_CHAR_FOR_COL;
-        if (colIndex < 0 ||colIndex>colSize) {
+        if (colIndex < 0) {
             throw new GameException("잘못된 입력입니다.");
         }
         return colIndex;
