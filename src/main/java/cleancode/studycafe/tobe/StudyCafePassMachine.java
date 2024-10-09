@@ -1,6 +1,6 @@
 package cleancode.studycafe.tobe;
 
-import cleancode.studycafe.tobe.exception.AppException;
+import cleancode.studycafe.asis.exception.AppException;
 import cleancode.studycafe.tobe.io.InputHandler;
 import cleancode.studycafe.tobe.io.OutputHandler;
 import cleancode.studycafe.tobe.io.StudyCafeFileHandler;
